@@ -39,12 +39,12 @@ library(ggplot2)
 
 ggplot() +
   geom_brain(
-    atlas = craddock200_cortical,
+    atlas = craddock200_cortical(),
     mapping = aes(fill = label),
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  scale_fill_manual(values = craddock200_cortical$palette, na.value = "grey") +
+  scale_fill_manual(values = craddock200_cortical()$palette, na.value = "grey") +
   theme_void() +
   ggtitle("Craddock 200 cortical parcellation")
 ```
@@ -53,12 +53,12 @@ ggplot() +
 ```{r "subcortical"}
 ggplot() +
   geom_brain(
-    atlas = craddock200_subcortical,
+    atlas = craddock200_subcortical(),
     mapping = aes(fill = label),
     position = position_brain(. ~ view),
     show.legend = FALSE
   ) +
-  scale_fill_manual(values = craddock200_subcortical$palette, na.value = "grey") +
+  scale_fill_manual(values = craddock200_subcortical()$palette, na.value = "grey") +
   theme_void() +
   ggtitle("Craddock 200 subcortical parcellation")
 ```
