@@ -8,16 +8,16 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ggseg/ggsegCraddock/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ggsegverse/ggsegCraddock/blob/main/DESCRIPTION)
 
 Mowinckel A (2026). *ggsegCraddock: Craddock Functional Parcellations
 for the 'ggseg' Ecosystem*. R package version 1.0.0,
-<https://github.com/ggseg/ggsegCraddock>.
+<https://github.com/ggsegverse/ggsegCraddock>.
 
     @Manual{,
       title = {ggsegCraddock: Craddock Functional Parcellations for the 'ggseg' Ecosystem},
       author = {Athanasia Mo Mowinckel},
       year = {2026},
       note = {R package version 1.0.0},
-      url = {https://github.com/ggseg/ggsegCraddock},
+      url = {https://github.com/ggsegverse/ggsegCraddock},
     }
