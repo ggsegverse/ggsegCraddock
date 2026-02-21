@@ -11,8 +11,8 @@ Craddock spatially constrained spectral clustering parcellations at various reso
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/ggseg/ggsegCraddock}
-  \item Report bugs at \url{https://github.com/ggseg/ggsegCraddock/issues}
+  \item \url{https://github.com/ggsegverse/ggsegCraddock}
+  \item Report bugs at \url{https://github.com/ggsegverse/ggsegCraddock/issues}
 }
 
 }

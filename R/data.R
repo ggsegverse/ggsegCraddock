@@ -12,6 +12,7 @@
 #'   \doi{10.1002/hbm.21333}
 #'
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
+#' @import ggseg.formats
 #' @export
 #' @examples
 #' craddock200_cortical()

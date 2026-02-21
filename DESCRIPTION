@@ -12,7 +12,8 @@ Description: Craddock spatially constrained spectral clustering parcellations
 License: CC0
 Encoding: UTF-8
 Depends:
-    R (>= 3.5),
+    R (>= 3.5)
+Imports:
     ggseg.formats
 Suggests:
     ggseg,
