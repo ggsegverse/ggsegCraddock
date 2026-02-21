@@ -9,9 +9,9 @@ indices, for use with 'ggseg' and 'ggseg3d'.
 
 Useful links:
 
-- <https://github.com/ggseg/ggsegCraddock>
+- <https://github.com/ggsegverse/ggsegCraddock>
 
-- Report bugs at <https://github.com/ggseg/ggsegCraddock/issues>
+- Report bugs at <https://github.com/ggsegverse/ggsegCraddock/issues>
 
 ## Author
 
