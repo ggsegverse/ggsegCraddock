@@ -7,13 +7,13 @@ polygon geometry and 3D meshes.
 ## Usage
 
 ``` r
-data(craddock200_subcortical)
+craddock200_subcortical()
 ```
 
-## Format
+## Value
 
 A
-[ggseg.formats::ggseg_atlas](https://ggseg.github.io/ggseg.formats/reference/ggseg_atlas.html)
+[ggseg.formats::ggseg_atlas](https://ggsegverse.github.io/ggseg.formats/reference/ggseg_atlas.html)
 object (subcortical).
 
 ## References
@@ -25,13 +25,12 @@ spatially constrained spectral clustering.
 ## See also
 
 Other ggseg_atlases:
-[`craddock200_cortical`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_cortical.md)
+[`craddock200_cortical()`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_cortical.md)
 
 ## Examples
 
 ``` r
-data(craddock200_subcortical)
-craddock200_subcortical
+craddock200_subcortical()
 #> 
 #> ── craddock200_subcortical ggseg atlas ─────────────────────────────────────────
 #> Type: subcortical
