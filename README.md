@@ -1,15 +1,28 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<!-- README.md is generated from README.qmd. Please edit that file -->
 
 # ggsegCraddock
 
-> **Work in Progress** — This package is under active development and
+> **Work in Progress** – This package is under active development and
 > has not yet been officially released.
 
 Craddock spatially constrained spectral clustering parcellation for the
 ggseg ecosystem.
 
 ## Installation
+
+We recommend installing the ggseg-atlases through the ggseg
+[r-universe](https://ggseg.r-universe.dev/ui#builds):
+
+``` r
+options(repos = c(
+  ggseg = "https://ggseg.r-universe.dev",
+  CRAN = "https://cloud.r-project.org"
+))
+
+install.packages("ggsegCraddock")
+```
 
 You can install this package from [GitHub](https://github.com/) with:
 
@@ -22,40 +35,39 @@ pak::pak("ggseg/ggsegCraddock")
 
 ``` r
 library(ggseg)
-#> Loading required package: ggseg.formats
 library(ggsegCraddock)
 library(ggplot2)
 
 ggplot() +
   geom_brain(
-    atlas = craddock200_cortical,
+    atlas = craddock200_cortical(),
     mapping = aes(fill = label),
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
-  scale_fill_manual(values = craddock200_cortical$palette, na.value = "grey") +
+  scale_fill_manual(values = craddock200_cortical()$palette, na.value = "grey") +
   theme_void() +
   ggtitle("Craddock 200 cortical parcellation")
 ```
 
-<img src="man/figures/README-cortical-1.png" alt="" width="100%" />
+<img src="man/figures/README-cortical-1.png" style="width:100.0%" />
 
 ## Subcortical atlas
 
 ``` r
 ggplot() +
   geom_brain(
-    atlas = craddock200_subcortical,
+    atlas = craddock200_subcortical(),
     mapping = aes(fill = label),
     position = position_brain(. ~ view),
     show.legend = FALSE
   ) +
-  scale_fill_manual(values = craddock200_subcortical$palette, na.value = "grey") +
+  scale_fill_manual(values = craddock200_subcortical()$palette, na.value = "grey") +
   theme_void() +
   ggtitle("Craddock 200 subcortical parcellation")
 ```
 
-<img src="man/figures/README-subcortical-1.png" alt="" width="100%" />
+<img src="man/figures/README-subcortical-1.png" style="width:100.0%" />
 
 ## Reference
 
