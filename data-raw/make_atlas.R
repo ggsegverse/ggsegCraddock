@@ -1,10 +1,6 @@
-library(dplyr)
-library(ggsegExtra)
+library(ggseg.extra)
 library(ggseg.formats)
 
-future::plan(future::multisession(workers = 4))
-progressr::handlers("cli")
-progressr::handlers(global = TRUE)
 
 cli::cli_h1("Creating Craddock 200-parcel atlas")
 
@@ -23,7 +19,7 @@ writeLines(
   lut_file
 )
 
-atlases <- create_wholebrain_atlas(
+atlases <- create_wholebrain_from_volume(
   input_volume = volume_file,
   input_lut = lut_file,
   atlas_name = "craddock200",
