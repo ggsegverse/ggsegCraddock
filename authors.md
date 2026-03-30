@@ -11,13 +11,13 @@ Source:
 [`DESCRIPTION`](https://github.com/ggsegverse/ggsegCraddock/blob/main/DESCRIPTION)
 
 Mowinckel A (2026). *ggsegCraddock: Craddock Functional Parcellations
-for the 'ggseg' Ecosystem*. R package version 1.0.1,
+for the 'ggseg' Ecosystem*. R package version 1.0.2,
 <https://github.com/ggsegverse/ggsegCraddock>.
 
     @Manual{,
       title = {ggsegCraddock: Craddock Functional Parcellations for the 'ggseg' Ecosystem},
       author = {Athanasia Mo Mowinckel},
       year = {2026},
-      note = {R package version 1.0.1},
+      note = {R package version 1.0.2},
       url = {https://github.com/ggsegverse/ggsegCraddock},
     }
