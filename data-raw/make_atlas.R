@@ -33,18 +33,13 @@ atlases <- create_wholebrain_from_volume(
   verbose = TRUE
 )
 
-craddock200_cortical <- atlases$cortical
-craddock200_subcortical <- atlases$subcortical
+.craddock200_cortical <- atlases$cortical
+.craddock200_subcortical <- atlases$subcortical
 
-cli::cli_alert_success("Cortical: {nrow(craddock200_cortical$core)} regions")
-cli::cli_alert_success("Subcortical: {nrow(craddock200_subcortical$core)} regions")
+print(.craddock200_cortical)
+plot(.craddock200_cortical)
+print(.craddock200_subcortical)
+plot(.craddock200_subcortical)
 
-brain_pals <- stats::setNames(
-  list(craddock200_cortical$palette, craddock200_subcortical$palette),
-  c(craddock200_cortical$atlas, craddock200_subcortical$atlas)
-)
-save(brain_pals, file = here::here("R/sysdata.rda"), compress = "xz")
-
-usethis::use_data(craddock200_cortical, craddock200_subcortical,
-  overwrite = TRUE, compress = "xz")
-cli::cli_alert_success("Saved to data/")
+usethis::use_data(.craddock200_cortical, .craddock200_subcortical,
+  overwrite = TRUE, compress = "xz", internal = TRUE)
