@@ -3,3 +3,7 @@
 export(craddock200_cortical)
 export(craddock200_subcortical)
 import(ggseg.formats)
+export(adhd200_200_cortical)
+export(adhd200_200_subcortical)
+export(adhd200_400_cortical)
+export(adhd200_400_subcortical)

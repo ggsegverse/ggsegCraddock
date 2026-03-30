@@ -1,11 +1,13 @@
 Package: ggsegCraddock
 Title: Craddock Functional Parcellations for the 'ggseg' Ecosystem
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(
     person("Athanasia Mo", "Mowinckel", , "a.m.mowinckel@psykologi.uio.no", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5756-0223"))
   )
-Description: Craddock spatially constrained spectral clustering parcellations
+Description: Craddock spatially constrained spectral clustering brain
+    parcellations for the 'ggsegverse' ecosystem. Includes CC200 and CC400
+    parcellations from the Craddock 2012 and ADHD-200 datasets.
     at various resolutions for the 'ggseg' ecosystem. Provides a unified
     'ggseg_atlas' object with both 2D polygon geometry and 3D vertex indices,
     for use with 'ggseg' and 'ggseg3d'.
