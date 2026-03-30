@@ -1,79 +1,65 @@
 # ggsegCraddock
 
-> **Work in Progress** – This package is under active development and
-> has not yet been officially released.
-
-Craddock spatially constrained spectral clustering parcellation for the
-ggseg ecosystem.
+Craddock spatially constrained spectral clustering parcellations for the
+ggsegverse Ecosystem.
 
 ## Installation
 
-We recommend installing the ggseg-atlases through the ggseg
-[r-universe](https://ggseg.r-universe.dev/ui#builds):
-
 ``` r
-options(repos = c(
-  ggseg = "https://ggseg.r-universe.dev",
-  CRAN = "https://cloud.r-project.org"
-))
+# From r-universe
+install.packages("ggsegCraddock", repos = "https://ggsegverse.r-universe.dev")
 
-install.packages("ggsegCraddock")
+# From GitHub
+# install.packages("remotes")
+remotes::install_github("ggsegverse/ggsegCraddock")
 ```
 
-You can install this package from [GitHub](https://github.com/) with:
+## Available atlases
+
+| Atlas          | Cortical                                                                                            | Subcortical                                                                                               |
+|----------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| Craddock 200   | [`craddock200_cortical()`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_cortical.md) | [`craddock200_subcortical()`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_subcortical.md) |
+| ADHD-200 CC200 | `adhd200_200_cortical()`                                                                            | `adhd200_200_subcortical()`                                                                               |
+| ADHD-200 CC400 | `adhd200_400_cortical()`                                                                            | `adhd200_400_subcortical()`                                                                               |
+
+## Craddock 200
 
 ``` r
-# install.packages("pak")
-pak::pak("ggseg/ggsegCraddock")
-```
-
-## Cortical atlas
-
-``` r
-library(ggseg)
 library(ggsegCraddock)
-library(ggplot2)
-
-ggplot() +
-  geom_brain(
-    atlas = craddock200_cortical(),
-    mapping = aes(fill = label),
-    position = position_brain(hemi ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = craddock200_cortical()$palette, na.value = "grey") +
-  theme_void() +
-  ggtitle("Craddock 200 cortical parcellation")
+plot(craddock200_cortical())
 ```
 
-![](reference/figures/README-cortical-1.png)
-
-## Subcortical atlas
+![](reference/figures/README-craddock200_cortical-1.png)
 
 ``` r
-ggplot() +
-  geom_brain(
-    atlas = craddock200_subcortical(),
-    mapping = aes(fill = label),
-    position = position_brain(. ~ view),
-    show.legend = FALSE
-  ) +
-  scale_fill_manual(values = craddock200_subcortical()$palette, na.value = "grey") +
-  theme_void() +
-  ggtitle("Craddock 200 subcortical parcellation")
+plot(craddock200_subcortical())
 ```
 
-![](reference/figures/README-subcortical-1.png)
+![](reference/figures/README-craddock200_subcortical-1.png)
 
-## Reference
+## ADHD-200 CC200
 
-Craddock RC et al. (2012). A whole brain fMRI atlas generated via
-spatially constrained spectral clustering. *Human Brain Mapping*, 33(8),
-1914-1928.
+``` r
+plot(adhd200_200_cortical())
+```
 
-## Code of Conduct
+![](reference/figures/README-adhd200_200_cortical-1.png)
 
-Please note that the ggsegCraddock project is released with a
-[Contributor Code of
-Conduct](https://ggseg.github.io/ggsegCraddock/CODE_OF_CONDUCT.md). By
-contributing to this project, you agree to abide by its terms.
+## ADHD-200 CC400
+
+``` r
+plot(adhd200_400_cortical())
+```
+
+![](reference/figures/README-adhd200_400_cortical-1.png)
+
+## Data source
+
+- **Craddock 200**: [NITRC](https://www.nitrc.org/projects/cluster_roi/)
+- **ADHD-200 CC200/CC400**:
+  [NITRC](https://www.nitrc.org/frs/?group_id=427)
+
+**Reference**: Craddock RC, et al. (2012). A whole brain fMRI atlas
+generated via spatially constrained spectral clustering. *Human Brain
+Mapping*, 33(8):1914-1928.
+[doi:10.1002/hbm.21333](https://doi.org/10.1002/hbm.21333)
