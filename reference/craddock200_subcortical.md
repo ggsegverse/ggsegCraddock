@@ -31,5 +31,32 @@ Other ggseg_atlases:
 
 ``` r
 craddock200_subcortical()
-#> Error in craddock200_subcortical(): object '.craddock200_subcortical' not found
+#> 
+#> ── craddock200_subcortical ggseg atlas ─────────────────────────────────────────
+#> Type: subcortical
+#> Regions: 15
+#> Hemispheres: NA
+#> Views: axial_1, axial_2, coronal_1, sagittal
+#> Palette: ✔
+#> Rendering: ✔ ggseg
+#> ✔ ggseg3d (meshes)
+#> ────────────────────────────────────────────────────────────────────────────────
+#> # A tibble: 15 × 3
+#>    hemi  region     label     
+#>    <chr> <chr>      <chr>     
+#>  1 NA    parcel 018 Parcel_018
+#>  2 NA    parcel 041 Parcel_041
+#>  3 NA    parcel 045 Parcel_045
+#>  4 NA    parcel 047 Parcel_047
+#>  5 NA    parcel 067 Parcel_067
+#>  6 NA    parcel 083 Parcel_083
+#>  7 NA    parcel 091 Parcel_091
+#>  8 NA    parcel 103 Parcel_103
+#>  9 NA    parcel 139 Parcel_139
+#> 10 NA    parcel 152 Parcel_152
+#> 11 NA    parcel 169 Parcel_169
+#> 12 NA    parcel 178 Parcel_178
+#> 13 NA    parcel 190 Parcel_190
+#> 14 NA    parcel 194 Parcel_194
+#> 15 NA    parcel 196 Parcel_196
 ```
