@@ -32,6 +32,11 @@ for (res in c(200, 400)) {
     print(atlases$subcortical)
     plot(atlases$subcortical)
   }
+  if (!is.null(atlases$cerebellar)) {
+    sysdata_env[[paste0(".adhd200_", res, "_cerebellar")]] <- atlases$cerebellar
+    print(atlases$cerebellar)
+    plot(atlases$cerebellar)
+  }
 }
 
 save(
