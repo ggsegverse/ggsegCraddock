@@ -6,6 +6,7 @@
 #' 3D vertex indices for [ggseg3d::ggseg3d()].
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #'
 #' @references Craddock RC et al. (2012). A whole brain fMRI atlas
 #'   generated via spatially constrained spectral clustering.
@@ -24,6 +25,7 @@ craddock200_cortical <- function() .craddock200_cortical
 #' Contains 2D polygon geometry and 3D meshes.
 #'
 #' @family ggseg_atlases
+#' @family subcortical_atlases
 #'
 #' @references Craddock RC et al. (2012). A whole brain fMRI atlas
 #'   generated via spatially constrained spectral clustering.
@@ -40,6 +42,7 @@ craddock200_subcortical <- function() .craddock200_subcortical
 #' spectral clustering of 650 ADHD-200 subjects.
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
@@ -55,6 +58,7 @@ adhd200_200_cortical <- function() .adhd200_200_cortical
 #' Subcortical parcellation from the Craddock CC200 clustering.
 #'
 #' @family ggseg_atlases
+#' @family subcortical_atlases
 #' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (subcortical).
@@ -70,6 +74,7 @@ adhd200_200_subcortical <- function() .adhd200_200_subcortical
 #' spectral clustering of 650 ADHD-200 subjects.
 #'
 #' @family ggseg_atlases
+#' @family cortical_atlases
 #' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
@@ -84,6 +89,7 @@ adhd200_400_cortical <- function() .adhd200_400_cortical
 #' Subcortical parcellation from the Craddock CC400 clustering.
 #'
 #' @family ggseg_atlases
+#' @family subcortical_atlases
 #' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (subcortical).
