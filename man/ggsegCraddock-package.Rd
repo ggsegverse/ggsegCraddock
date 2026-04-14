@@ -6,7 +6,7 @@
 \alias{ggsegCraddock-package}
 \title{ggsegCraddock: Craddock Functional Parcellations for the 'ggseg' Ecosystem}
 \description{
-Craddock spatially constrained spectral clustering parcellations at various resolutions for the 'ggseg' ecosystem. Provides a unified 'ggseg_atlas' object with both 2D polygon geometry and 3D vertex indices, for use with 'ggseg' and 'ggseg3d'.
+Craddock spatially constrained spectral clustering brain parcellations for the 'ggsegverse' ecosystem. Includes CC200 and CC400 parcellations from the Craddock 2012 and ADHD-200 datasets. at various resolutions for the 'ggseg' ecosystem. Provides a unified 'ggseg_atlas' object with both 2D polygon geometry and 3D vertex indices, for use with 'ggseg' and 'ggseg3d'.
 }
 \seealso{
 Useful links:
