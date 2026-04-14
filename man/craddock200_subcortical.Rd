@@ -24,13 +24,10 @@ generated via spatially constrained spectral clustering.
 }
 \seealso{
 Other ggseg_atlases: 
-\code{\link{adhd200_200_cerebellar}()},
 \code{\link{adhd200_200_cortical}()},
 \code{\link{adhd200_200_subcortical}()},
-\code{\link{adhd200_400_cerebellar}()},
 \code{\link{adhd200_400_cortical}()},
 \code{\link{adhd200_400_subcortical}()},
-\code{\link{craddock200_cerebellar}()},
 \code{\link{craddock200_cortical}()}
 
 Other subcortical_atlases: 
