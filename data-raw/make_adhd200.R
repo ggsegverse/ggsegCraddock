@@ -15,7 +15,10 @@ sysdata_env <- new.env(parent = emptyenv())
 
 for (res in c(200, 400)) {
   atlases <- create_wholebrain_from_volume(
-    input_volume = here::here("data-raw", "source", paste0("ADHD200_parcellate_", res, ".nii.gz")),
+    input_volume = here::here(
+      "data-raw", "source",
+      paste0("ADHD200_parcellate_", res, ".nii.gz")
+    ),
     atlas_name = paste0("adhd200_", res),
     output_dir = "data-raw",
     skip_existing = TRUE,
@@ -28,9 +31,16 @@ for (res in c(200, 400)) {
     plot(atlases$cortical)
   }
   if (!is.null(atlases$subcortical)) {
-    sysdata_env[[paste0(".adhd200_", res, "_subcortical")]] <- atlases$subcortical
+    sysdata_env[
+      paste0(".adhd200_", res, "_subcortical")
+    ] <- atlases$subcortical
     print(atlases$subcortical)
     plot(atlases$subcortical)
+  }
+  if (!is.null(atlases$cerebellar)) {
+    sysdata_env[[paste0(".adhd200_", res, "_cerebellar")]] <- atlases$cerebellar
+    print(atlases$cerebellar)
+    plot(atlases$cerebellar)
   }
 }
 

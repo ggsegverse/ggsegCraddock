@@ -4,7 +4,9 @@ library(ggseg.formats)
 
 cli::cli_h1("Creating Craddock 200-parcel atlas")
 
-nifti_4d <- RNifti::readNifti(here::here("data-raw", "tcorr05_2level_all.nii.gz"))
+  nifti_4d <- RNifti::readNifti(
+    here::here("data-raw", "tcorr05_2level_all.nii.gz")
+  )
 parcellation_3d <- nifti_4d[, , , 20]
 
 volume_file <- here::here("data-raw", "tcorr05_2level_200.nii.gz")
@@ -35,11 +37,19 @@ atlases <- create_wholebrain_from_volume(
 
 .craddock200_cortical <- atlases$cortical
 .craddock200_subcortical <- atlases$subcortical
+.craddock200_cerebellar <- atlases$cerebellar
 
 print(.craddock200_cortical)
 plot(.craddock200_cortical)
 print(.craddock200_subcortical)
 plot(.craddock200_subcortical)
 
-usethis::use_data(.craddock200_cortical, .craddock200_subcortical,
-  overwrite = TRUE, compress = "xz", internal = TRUE)
+if (!is.null(.craddock200_cerebellar)) {
+  print(.craddock200_cerebellar)
+  plot(.craddock200_cerebellar)
+  usethis::use_data(.craddock200_cortical, .craddock200_subcortical,
+    .craddock200_cerebellar, overwrite = TRUE, compress = "xz", internal = TRUE)
+} else {
+  usethis::use_data(.craddock200_cortical, .craddock200_subcortical,
+    overwrite = TRUE, compress = "xz", internal = TRUE)
+}
