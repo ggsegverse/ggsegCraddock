@@ -14,7 +14,6 @@ Subcortical parcellation from the Craddock CC400 clustering.
 }
 \examples{
 adhd200_400_subcortical()
-plot(adhd200_400_subcortical())
 }
 \references{
 Craddock RC, et al. (2012). \emph{Human Brain Mapping}, 33(8):1914-1928.
@@ -22,12 +21,9 @@ Craddock RC, et al. (2012). \emph{Human Brain Mapping}, 33(8):1914-1928.
 }
 \seealso{
 Other ggseg_atlases: 
-\code{\link{adhd200_200_cerebellar}()},
 \code{\link{adhd200_200_cortical}()},
 \code{\link{adhd200_200_subcortical}()},
-\code{\link{adhd200_400_cerebellar}()},
 \code{\link{adhd200_400_cortical}()},
-\code{\link{craddock200_cerebellar}()},
 \code{\link{craddock200_cortical}()},
 \code{\link{craddock200_subcortical}()}
 
