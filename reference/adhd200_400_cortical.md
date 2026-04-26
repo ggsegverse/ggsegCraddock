@@ -23,12 +23,9 @@ Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
 ## See also
 
 Other ggseg_atlases:
-[`adhd200_200_cerebellar()`](https://ggseg.github.io/ggsegCraddock/reference/adhd200_200_cerebellar.md),
 [`adhd200_200_cortical()`](https://ggseg.github.io/ggsegCraddock/reference/adhd200_200_cortical.md),
 [`adhd200_200_subcortical()`](https://ggseg.github.io/ggsegCraddock/reference/adhd200_200_subcortical.md),
-[`adhd200_400_cerebellar()`](https://ggseg.github.io/ggsegCraddock/reference/adhd200_400_cerebellar.md),
 [`adhd200_400_subcortical()`](https://ggseg.github.io/ggsegCraddock/reference/adhd200_400_subcortical.md),
-[`craddock200_cerebellar()`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_cerebellar.md),
 [`craddock200_cortical()`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_cortical.md),
 [`craddock200_subcortical()`](https://ggseg.github.io/ggsegCraddock/reference/craddock200_subcortical.md)
 
@@ -254,5 +251,4 @@ adhd200_400_cortical()
 #> 199 right region 0393 rh_region_0393
 #> 200 right region 0395 rh_region_0395
 #> 201 right unknown     rh_unknown    
-plot(adhd200_400_cortical())
 ```
