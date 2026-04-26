@@ -4,7 +4,9 @@ library(ggseg.formats)
 
 cli::cli_h1("Creating Craddock 200-parcel atlas")
 
-nifti_4d <- RNifti::readNifti(here::here("data-raw", "tcorr05_2level_all.nii.gz"))
+  nifti_4d <- RNifti::readNifti(
+    here::here("data-raw", "tcorr05_2level_all.nii.gz")
+  )
 parcellation_3d <- nifti_4d[, , , 20]
 
 volume_file <- here::here("data-raw", "tcorr05_2level_200.nii.gz")
