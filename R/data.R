@@ -43,7 +43,8 @@ craddock200_subcortical <- function() .craddock200_subcortical
 #'
 #' @family ggseg_atlases
 #' @family cortical_atlases
-#' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
+#' @references Craddock RC, et al. (2012).
+#'   *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
 #' @import ggseg.formats
@@ -58,7 +59,8 @@ adhd200_200_cortical <- function() .adhd200_200_cortical
 #'
 #' @family ggseg_atlases
 #' @family subcortical_atlases
-#' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
+#' @references Craddock RC, et al. (2012).
+#'   *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (subcortical).
 #' @export
@@ -73,7 +75,8 @@ adhd200_200_subcortical <- function() .adhd200_200_subcortical
 #'
 #' @family ggseg_atlases
 #' @family cortical_atlases
-#' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
+#' @references Craddock RC, et al. (2012).
+#'   *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (cortical).
 #' @export
@@ -87,7 +90,8 @@ adhd200_400_cortical <- function() .adhd200_400_cortical
 #'
 #' @family ggseg_atlases
 #' @family subcortical_atlases
-#' @references Craddock RC, et al. (2012). *Human Brain Mapping*, 33(8):1914-1928.
+#' @references Craddock RC, et al. (2012).
+#'   *Human Brain Mapping*, 33(8):1914-1928.
 #'   \doi{10.1002/hbm.21333}
 #' @return A [ggseg.formats::ggseg_atlas] object (subcortical).
 #' @export
