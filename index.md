@@ -13,6 +13,7 @@ We recommend installing the ggseg-atlases through the ggseg
 [r-universe](https://ggseg.r-universe.dev/ui#builds):
 
 ``` r
+
 options(repos = c(
   ggseg = "https://ggseg.r-universe.dev",
   CRAN = "https://cloud.r-project.org"
@@ -24,6 +25,7 @@ install.packages("ggsegCraddock")
 You can install this package from [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("ggsegverse/ggsegCraddock")
 ```
@@ -31,6 +33,7 @@ pak::pak("ggsegverse/ggsegCraddock")
 ## Craddock 200 cortical
 
 ``` r
+
 library(ggseg)
 library(ggsegCraddock)
 library(ggplot2)
@@ -50,6 +53,7 @@ ggplot() +
 ## Craddock 200 subcortical
 
 ``` r
+
 ggplot() +
   geom_brain(
     atlas = craddock200_subcortical(),
@@ -65,6 +69,7 @@ ggplot() +
 ## ADHD-200 200 cortical
 
 ``` r
+
 ggplot() +
   geom_brain(
     atlas = adhd200_200_cortical(),
@@ -80,6 +85,7 @@ ggplot() +
 ## ADHD-200 200 subcortical
 
 ``` r
+
 ggplot() +
   geom_brain(
     atlas = adhd200_200_subcortical(),
@@ -95,6 +101,7 @@ ggplot() +
 ## ADHD-200 400 cortical
 
 ``` r
+
 ggplot() +
   geom_brain(
     atlas = adhd200_400_cortical(),
@@ -110,6 +117,7 @@ ggplot() +
 ## ADHD-200 400 subcortical
 
 ``` r
+
 ggplot() +
   geom_brain(
     atlas = adhd200_400_subcortical(),

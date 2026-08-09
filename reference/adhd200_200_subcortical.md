@@ -46,22 +46,16 @@ adhd200_200_subcortical()
 #> Rendering: ✔ ggseg
 #> ✔ ggseg3d (meshes)
 #> ────────────────────────────────────────────────────────────────────────────────
-#> # A tibble: 15 × 3
-#>    hemi  region      label      
-#>    <chr> <chr>       <chr>      
-#>  1 NA    region 0003 region_0003
-#>  2 NA    region 0009 region_0009
-#>  3 NA    region 0014 region_0014
-#>  4 NA    region 0019 region_0019
-#>  5 NA    region 0031 region_0031
-#>  6 NA    region 0038 region_0038
-#>  7 NA    region 0045 region_0045
-#>  8 NA    region 0065 region_0065
-#>  9 NA    region 0069 region_0069
-#> 10 NA    region 0098 region_0098
-#> 11 NA    region 0143 region_0143
-#> 12 NA    region 0149 region_0149
-#> 13 NA    region 0159 region_0159
-#> 14 NA    region 0169 region_0169
-#> 15 NA    region 0183 region_0183
+#>    hemi      region       label
+#> 1  <NA> region 0003 region_0003
+#> 2  <NA> region 0009 region_0009
+#> 3  <NA> region 0014 region_0014
+#> 4  <NA> region 0019 region_0019
+#> 5  <NA> region 0031 region_0031
+#> 6  <NA> region 0038 region_0038
+#> 7  <NA> region 0045 region_0045
+#> 8  <NA> region 0065 region_0065
+#> 9  <NA> region 0069 region_0069
+#> 10 <NA> region 0098 region_0098
+#> ... with 5 more rows
 ```
