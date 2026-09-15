@@ -1,3 +1,17 @@
+# ggsegCraddock 1.0.3.9002
+
+- The grey brain silhouette in the subcortical atlases is drawn as context
+  again instead of as one big coloured region, which read as cortex leaking
+  into an atlas of subcortical structures. The README figures now colour the
+  parcels from the atlas palette and send everything the core does not name
+  to grey; the medial wall in the cortical figures is grey for the same
+  reason. Any plot mapping `fill = label` needs this until
+  ggsegverse/ggseg#182 lands.
+- Fixed the sagittal panel painting its silhouette over its own structures.
+  In `adhd200_400_subcortical()` it was a blank grey silhouette with all
+  twenty of its structures hidden behind it. Works around
+  ggsegverse/ggseg.extra#161 and ggsegverse/ggseg#181.
+
 # ggsegCraddock 1.0.3.9001
 
 - The cerebellum is now an atlas of its own. `craddock200_cerebellar()`,

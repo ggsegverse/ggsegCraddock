@@ -202,23 +202,77 @@ describe("adhd200 subcortical composition", {
   })
 })
 
-describe("subcortical context silhouette", {
-  # The grey `cortex_` backdrop is polished apart from the structures: a
-  # morphological close fills every sulcus and ventricle narrower than the
-  # smoothing distance, so the context is only corner-cut instead. Its
-  # openings are what makes it read as a brain rather than a blob.
-  it("keeps the holes a morphological close would fill", {
-    atlases <- list(
-      craddock200_subcortical(),
-      adhd200_200_subcortical(),
-      adhd200_400_subcortical()
-    )
-    for (atlas in atlases) {
-      geom <- ggseg.formats::atlas_geom(atlas)
-      context <- geom$geometry[[which(grepl("^cortex", geom$label))[1]]]
-      holes <- unique(context[c("view", "group", "subgroup")])
-      expect_gt(sum(holes$subgroup > 1), 0)
-    }
+describe("subcortical context", {
+  # The brain silhouette is context, not a parcel: the geometry carries it but
+  # the core does not name it, which is how ggseg tells the two apart. It has
+  # to sit under the structures and stay out of the colour scale.
+  atlases <- list(
+    craddock200 = craddock200_subcortical,
+    adhd200_200 = adhd200_200_subcortical,
+    adhd200_400 = adhd200_400_subcortical
+  )
+
+  context_rows <- function(atlas) {
+    geom <- ggseg.formats::atlas_geom(atlas)
+    !geom$label %in% ggseg.formats::atlas_labels(atlas)
+  }
+
+  for (nm in names(atlases)) {
+    local({
+      name <- nm
+      atlas <- atlases[[nm]]
+
+      it(paste(name, "draws the context under every structure"), {
+        # ggseg paints the geometry table in order, so the silhouette has to
+        # come first. The sagittal one, `cortex_left`, used to sort last and
+        # cover its panel: on CC400 that hid all twenty of its structures.
+        is_context <- context_rows(atlas())
+        expect_gt(sum(is_context), 0)
+        expect_equal(which(is_context), seq_len(sum(is_context)))
+      })
+
+      it(paste(name, "keeps the context out of the palette"), {
+        geom <- ggseg.formats::atlas_geom(atlas())
+        context <- geom$label[context_rows(atlas())]
+        expect_length(
+          intersect(context, names(ggseg.formats::atlas_palette(atlas()))),
+          0
+        )
+      })
+
+      it(paste(name, "keeps the holes a morphological close would fill"), {
+        # The silhouette is corner-cut rather than closed, because a close
+        # fills every sulcus and ventricle narrower than the smoothing
+        # distance. Its openings are what make it read as a brain, not a blob.
+        geom <- ggseg.formats::atlas_geom(atlas())
+        silhouette <- geom$geometry[[which(context_rows(atlas()))[1]]]
+        holes <- unique(silhouette[c("view", "group", "subgroup")])
+        expect_gt(sum(holes$subgroup > 1), 0)
+      })
+    })
+  }
+
+  it("renders as the grey backdrop, not as a parcel", {
+    # The context has no `region`, but it does have a `label`, and the figures
+    # map `fill = label`. A plain discrete scale has no reason to treat a
+    # context label differently from a parcel, so without a scale that sends
+    # the unmatched labels to grey the whole brain is painted as if it were
+    # parcellated. This is the panel the whole describe block is about, and
+    # the only subcortical atlas with a visual snapshot.
+    skip_if_not_installed("ggseg")
+    skip_if_not_installed("ggplot2")
+    skip_if_not_installed("vdiffr")
+    atlas <- adhd200_200_subcortical()
+    p <- ggplot2::ggplot() +
+      ggseg::geom_brain(
+        atlas = atlas,
+        mapping = ggplot2::aes(fill = label),
+        position = ggseg::position_brain(. ~ view),
+        show.legend = FALSE
+      ) +
+      ggseg::scale_fill_brain_manual(ggseg.formats::atlas_palette(atlas)) +
+      ggplot2::theme_void()
+    vdiffr::expect_doppelganger("adhd200-200-subcortical-2d", p)
   })
 })
 
