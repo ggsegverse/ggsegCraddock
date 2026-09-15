@@ -268,7 +268,33 @@ polish_subcortical <- function(atlas) {
       smoothness = 0.6,
       method = "chaikin",
       labels = "^cortex"
-    )
+    ) |>
+    context_first()
+}
+
+# ggseg paints the polygons in the order the geometry table holds them, and
+# ggseg.extra's `arrange_contour_sf()` only sorts the silhouette down when it
+# is named `cortex` or `cortex_`. The sagittal silhouette is named
+# `cortex_left` - `cortex_slice_file()` puts the hemisphere in the filename -
+# so it misses the match, stays last in the table and is painted over the
+# structures. The axial and coronal silhouettes have ventricles and sulci to
+# see through, which is why this only shows in the sagittal panel: on CC400 it
+# is a blank grey silhouette with all twenty of its structures behind it.
+#
+# Moving the context to the front of the table - drawn first, so it ends up
+# under the structures - fixes the shipped atlases. Drop this once either
+# ggsegverse/ggseg.extra#161 lands and the atlases are rebuilt, or
+# ggsegverse/ggseg#181 makes geom_brain() reorder at render time the way the
+# other render paths already do.
+context_first <- function(atlas) {
+  context <- setdiff(
+    ggseg.formats::atlas_geom(atlas)$label,
+    ggseg.formats::atlas_labels(atlas)
+  )
+  if (!length(context)) {
+    return(atlas)
+  }
+  ggseg.formats::atlas_structure_reorder(atlas, context)
 }
 
 # Both build scripts contribute objects to the same R/sysdata.rda. Stash each
