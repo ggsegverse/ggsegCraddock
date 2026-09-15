@@ -1,4 +1,4 @@
-# ggsegCraddock 1.0.4
+# ggsegCraddock 1.0.3.9001
 
 - Rebuilt all six atlases against the fixed ggseg.extra pipeline: cortical holes
   are filled, the medial wall is kept as grey context, snapshot masks are read
