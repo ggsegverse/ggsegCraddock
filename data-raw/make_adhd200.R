@@ -21,7 +21,7 @@ for (res in c(200, 400)) {
     paste0("ADHD200_parcellate_", res, ".nii.gz")
   )
 
-  cortical_labels <- cortical_ribbon_labels(
+  split <- classify_parcels(
     volume_file,
     label_fmt = "region_%04d",
     cache_file = here::here(
@@ -30,19 +30,31 @@ for (res in c(200, 400)) {
     )
   )
   cli::cli_alert_info(
-    "{length(cortical_labels)} parcel{?s} are majority cortical ribbon"
+    "{length(split$cortical)} cortical, {length(split$cerebellar)} cerebellar
+     parcel{?s} by anatomy"
   )
 
+  # Steps 1-4 only; see make_atlas.R for why the cerebellum is built apart.
   atlases <- create_wholebrain_from_volume(
     input_volume = volume_file,
     atlas_name = paste0("adhd200_", res),
     output_dir = "data-raw",
     registration = "header",
-    cortical_labels = cortical_labels,
+    cortical_labels = split$cortical,
+    cerebellar_labels = split$cerebellar,
     subcortical_opts = list(decimate = 0.5),
+    steps = 1:4,
     skip_existing = TRUE,
     cleanup = FALSE,
     verbose = TRUE
+  )
+
+  cerebellar <- build_cerebellar(
+    volume_file,
+    cerebellar_labels = split$cerebellar,
+    label_fmt = "region_%04d",
+    atlas_name = paste0("adhd200_", res, "_cerebellar"),
+    output_dir = "data-raw"
   )
 
   stash_atlas(
@@ -55,11 +67,12 @@ for (res in c(200, 400)) {
   )
   stash_atlas(
     paste0(".adhd200_", res, "_cerebellar"),
-    distinct_palette(atlases$cerebellar, seed = res + 3)
+    distinct_palette(cerebellar, seed = res + 3)
   )
 
   print(atlases$cortical)
   print(atlases$subcortical)
+  print(cerebellar)
 }
 
 write_sysdata()

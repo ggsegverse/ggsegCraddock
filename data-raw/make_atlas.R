@@ -31,26 +31,40 @@ writeLines(
 )
 
 cli::cli_h2("Classifying parcels against aparc+aseg")
-cortical_labels <- cortical_ribbon_labels(
+split <- classify_parcels(
   volume_file,
   label_fmt = "Parcel_%03d",
   cache_file = here::here("data-raw", "aparc_aseg_on_craddock.nii.gz")
 )
 cli::cli_alert_info(
-  "{length(cortical_labels)} parcel{?s} are majority cortical ribbon"
+  "{length(split$cortical)} cortical, {length(split$cerebellar)} cerebellar
+   parcel{?s} by anatomy"
 )
 
+# Steps 1-4 only: the cerebellar parcels are held out of the subcortical
+# atlas here, but built below rather than by the pipeline's step 5, which
+# would hand them to the SUIT flatmap still in MNI space.
 atlases <- create_wholebrain_from_volume(
   input_volume = volume_file,
   input_lut = lut_file,
   atlas_name = "craddock200",
   output_dir = "data-raw/craddock200",
   registration = "header",
-  cortical_labels = cortical_labels,
+  cortical_labels = split$cortical,
+  cerebellar_labels = split$cerebellar,
   subcortical_opts = list(decimate = 0.5),
+  steps = 1:4,
   skip_existing = TRUE,
   cleanup = FALSE,
   verbose = TRUE
+)
+
+cerebellar <- build_cerebellar(
+  volume_file,
+  cerebellar_labels = split$cerebellar,
+  label_fmt = "Parcel_%03d",
+  atlas_name = "craddock200_cerebellar",
+  output_dir = "data-raw/craddock200"
 )
 
 .craddock200_cortical <- distinct_palette(atlases$cortical, seed = 11)
@@ -58,10 +72,11 @@ atlases <- create_wholebrain_from_volume(
   polish_subcortical(atlases$subcortical),
   seed = 12
 )
-.craddock200_cerebellar <- distinct_palette(atlases$cerebellar, seed = 13)
+.craddock200_cerebellar <- distinct_palette(cerebellar, seed = 13)
 
 print(.craddock200_cortical)
 print(.craddock200_subcortical)
+print(.craddock200_cerebellar)
 
 stash_atlas(".craddock200_cortical", .craddock200_cortical)
 stash_atlas(".craddock200_subcortical", .craddock200_subcortical)

@@ -36,6 +36,27 @@ craddock200_cortical <- function() .craddock200_cortical
 #' @examples
 #' craddock200_subcortical()
 craddock200_subcortical <- function() .craddock200_subcortical
+
+#' Craddock 200 Cerebellar Parcellation
+#'
+#' Cerebellar regions from the Craddock 200-parcel spatially constrained
+#' spectral clustering parcellation (Craddock et al., 2012), drawn on the
+#' SUIT cerebellar flatmap. The parcellation covers the whole brain, so the
+#' parcels that fall in the cerebellum are separated out here rather than
+#' left among the subcortical structures.
+#'
+#' @family ggseg_atlases
+#' @family cerebellar_atlases
+#'
+#' @references Craddock RC et al. (2012). A whole brain fMRI atlas
+#'   generated via spatially constrained spectral clustering.
+#'   \doi{10.1002/hbm.21333}
+#'
+#' @return A [ggseg.formats::ggseg_atlas] object (cerebellar).
+#' @export
+#' @examples
+#' craddock200_cerebellar()
+craddock200_cerebellar <- function() .craddock200_cerebellar
 #' ADHD-200 CC200 Cortical Atlas
 #'
 #' Cortical parcellation from the Craddock CC200 spatially constrained
@@ -68,6 +89,22 @@ adhd200_200_cortical <- function() .adhd200_200_cortical
 #' adhd200_200_subcortical()
 adhd200_200_subcortical <- function() .adhd200_200_subcortical
 
+#' ADHD-200 CC200 Cerebellar Atlas
+#'
+#' Cerebellar parcellation from the Craddock CC200 clustering, drawn on the
+#' SUIT cerebellar flatmap.
+#'
+#' @family ggseg_atlases
+#' @family cerebellar_atlases
+#' @references Craddock RC, et al. (2012).
+#'   *Human Brain Mapping*, 33(8):1914-1928.
+#'   \doi{10.1002/hbm.21333}
+#' @return A [ggseg.formats::ggseg_atlas] object (cerebellar).
+#' @export
+#' @examples
+#' adhd200_200_cerebellar()
+adhd200_200_cerebellar <- function() .adhd200_200_cerebellar
+
 #' ADHD-200 CC400 Cortical Atlas
 #'
 #' Cortical parcellation from the Craddock CC400 spatially constrained
@@ -98,3 +135,19 @@ adhd200_400_cortical <- function() .adhd200_400_cortical
 #' @examples
 #' adhd200_400_subcortical()
 adhd200_400_subcortical <- function() .adhd200_400_subcortical
+
+#' ADHD-200 CC400 Cerebellar Atlas
+#'
+#' Cerebellar parcellation from the Craddock CC400 clustering, drawn on the
+#' SUIT cerebellar flatmap.
+#'
+#' @family ggseg_atlases
+#' @family cerebellar_atlases
+#' @references Craddock RC, et al. (2012).
+#'   *Human Brain Mapping*, 33(8):1914-1928.
+#'   \doi{10.1002/hbm.21333}
+#' @return A [ggseg.formats::ggseg_atlas] object (cerebellar).
+#' @export
+#' @examples
+#' adhd200_400_cerebellar()
+adhd200_400_cerebellar <- function() .adhd200_400_cerebellar

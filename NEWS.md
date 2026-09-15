@@ -1,6 +1,30 @@
 # ggsegCraddock 1.0.3.9001
 
-- Rebuilt all six atlases against the fixed ggseg.extra pipeline: cortical holes
+- The cerebellum is now an atlas of its own. `craddock200_cerebellar()`,
+  `adhd200_200_cerebellar()` and `adhd200_400_cerebellar()` draw the 17, 22 and
+  43 parcels that fall in the cerebellum on the SUIT flatmap, instead of
+  leaving them in the subcortical atlas as blobs under the brain silhouette.
+  Parcels are named by the side they sit on, as `left_Parcel_009`.
+- Fixed the frontal and superior cortex still filed as subcortical in the
+  ADHD-200 atlases. Those parcellations were clustered on EPI data and reach
+  past the edge of FreeSurfer's brain, so a frontal-pole or vertex parcel can
+  be two-thirds unlabelled in `aparc+aseg` and only a quarter cortical ribbon
+  by volume, which fell through the absolute 0.25 threshold. The test now
+  compares grey matter with grey matter, ignoring white matter and unlabelled
+  voxels: measured that way the same parcels are 60-100% cortical.
+  `adhd200_400_subcortical()` drops from 108 parcels to 36 and
+  `adhd200_200_subcortical()` from 39 to 16; `craddock200_subcortical()` goes
+  from 36 to 19. Nothing that was cortical stopped being cortical - the new
+  rule forces a strict superset of the old one.
+- The grey context silhouette in the subcortical atlases keeps its sulci,
+  fissures and ventricles. It was being simplified and morphologically closed
+  along with the structures, and a close fills every opening narrower than the
+  smoothing distance, which turned the brain outline into a blob. The context
+  is now polished in its own pass, with most of its vertices kept and Chaikin
+  corner-cutting instead of a close; the structures are still simplified hard
+  and closed.
+- Rebuilt all nine atlases against the fixed ggseg.extra pipeline: cortical
+  holes
   are filled, the medial wall is kept as grey context, snapshot masks are read
   with an explicit y direction, subcortical labels no longer collide with the
   brain-outline indices, and subcortical slabs are framed on the label bounding

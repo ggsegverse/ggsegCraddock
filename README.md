@@ -74,6 +74,21 @@ ggplot() +
 <img src="man/figures/README-craddock200-subcortical-1.png"
 style="width:100.0%" />
 
+## Craddock 200 cerebellar
+
+``` r
+ggplot() +
+  geom_brain(
+    atlas = craddock200_cerebellar(),
+    mapping = aes(fill = label),
+    show.legend = FALSE
+  ) +
+  theme_void()
+```
+
+<img src="man/figures/README-craddock200-cerebellar-1.png"
+style="width:100.0%" />
+
 ## ADHD-200 200 cortical
 
 ``` r
@@ -106,6 +121,21 @@ ggplot() +
 <img src="man/figures/README-adhd200-200-subcortical-1.png"
 style="width:100.0%" />
 
+## ADHD-200 200 cerebellar
+
+``` r
+ggplot() +
+  geom_brain(
+    atlas = adhd200_200_cerebellar(),
+    mapping = aes(fill = label),
+    show.legend = FALSE
+  ) +
+  theme_void()
+```
+
+<img src="man/figures/README-adhd200-200-cerebellar-1.png"
+style="width:100.0%" />
+
 ## ADHD-200 400 cortical
 
 ``` r
@@ -136,6 +166,21 @@ ggplot() +
 ```
 
 <img src="man/figures/README-adhd200-400-subcortical-1.png"
+style="width:100.0%" />
+
+## ADHD-200 400 cerebellar
+
+``` r
+ggplot() +
+  geom_brain(
+    atlas = adhd200_400_cerebellar(),
+    mapping = aes(fill = label),
+    show.legend = FALSE
+  ) +
+  theme_void()
+```
+
+<img src="man/figures/README-adhd200-400-cerebellar-1.png"
 style="width:100.0%" />
 
 ## Data source
