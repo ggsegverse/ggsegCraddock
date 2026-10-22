@@ -59,16 +59,20 @@ pak::pak("ggsegverse/ggsegCraddock")
 ```{r}
 #| label: craddock200-cortical
 library(ggseg)
+library(ggseg.formats)
 library(ggsegCraddock)
 library(ggplot2)
 
+atlas <- craddock200_cortical()
+
 ggplot() +
   geom_brain(
-    atlas = craddock200_cortical(),
+    atlas = atlas,
     mapping = aes(fill = label),
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -76,13 +80,16 @@ ggplot() +
 
 ```{r}
 #| label: craddock200-subcortical
+atlas <- craddock200_subcortical()
+
 ggplot() +
   geom_brain(
-    atlas = craddock200_subcortical(),
+    atlas = atlas,
     mapping = aes(fill = label),
     position = position_brain(. ~ view),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -90,12 +97,15 @@ ggplot() +
 
 ```{r}
 #| label: craddock200-cerebellar
+atlas <- craddock200_cerebellar()
+
 ggplot() +
   geom_brain(
-    atlas = craddock200_cerebellar(),
+    atlas = atlas,
     mapping = aes(fill = label),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -103,13 +113,16 @@ ggplot() +
 
 ```{r}
 #| label: adhd200-200-cortical
+atlas <- adhd200_200_cortical()
+
 ggplot() +
   geom_brain(
-    atlas = adhd200_200_cortical(),
+    atlas = atlas,
     mapping = aes(fill = label),
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -117,13 +130,16 @@ ggplot() +
 
 ```{r}
 #| label: adhd200-200-subcortical
+atlas <- adhd200_200_subcortical()
+
 ggplot() +
   geom_brain(
-    atlas = adhd200_200_subcortical(),
+    atlas = atlas,
     mapping = aes(fill = label),
     position = position_brain(. ~ view),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -131,12 +147,15 @@ ggplot() +
 
 ```{r}
 #| label: adhd200-200-cerebellar
+atlas <- adhd200_200_cerebellar()
+
 ggplot() +
   geom_brain(
-    atlas = adhd200_200_cerebellar(),
+    atlas = atlas,
     mapping = aes(fill = label),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -144,13 +163,16 @@ ggplot() +
 
 ```{r}
 #| label: adhd200-400-cortical
+atlas <- adhd200_400_cortical()
+
 ggplot() +
   geom_brain(
-    atlas = adhd200_400_cortical(),
+    atlas = atlas,
     mapping = aes(fill = label),
     position = position_brain(hemi ~ view),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -158,13 +180,16 @@ ggplot() +
 
 ```{r}
 #| label: adhd200-400-subcortical
+atlas <- adhd200_400_subcortical()
+
 ggplot() +
   geom_brain(
-    atlas = adhd200_400_subcortical(),
+    atlas = atlas,
     mapping = aes(fill = label),
     position = position_brain(. ~ view),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
@@ -172,12 +197,15 @@ ggplot() +
 
 ```{r}
 #| label: adhd200-400-cerebellar
+atlas <- adhd200_400_cerebellar()
+
 ggplot() +
   geom_brain(
-    atlas = adhd200_400_cerebellar(),
+    atlas = atlas,
     mapping = aes(fill = label),
     show.legend = FALSE
   ) +
+  scale_fill_brain_manual(atlas_palette(atlas)) +
   theme_void()
 ```
 
