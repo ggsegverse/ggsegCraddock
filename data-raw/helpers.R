@@ -269,6 +269,21 @@ polish_subcortical <- function(atlas) {
       method = "chaikin",
       labels = "^cortex"
     ) |>
+    # Specks first: a parcel clipped by the slab can leave a piece of a few
+    # square units sitting outside the brain outline, which reads as a bug.
+    # The smallest real piece here is ~150, so 50 takes the specks and
+    # nothing else. The backdrop is spared -- a ribbon's gyral
+    # cross-sections are legitimately small.
+    ggseg.extra::atlas_view_remove_small(
+      min_area = 50,
+      scope = "piece",
+      exclude = "^cortex"
+    ) |>
+    # Two slabs, not seven. The axial and coronal slabs between them already
+    # draw every region in all three of this package's subcortical atlases,
+    # so the sagittal one added no region and plenty of pile-up: twenty
+    # parcels projected through it landed on top of each other.
+    ggseg.formats::atlas_view_keep(c("axial_2", "coronal_2")) |>
     context_first()
 }
 
